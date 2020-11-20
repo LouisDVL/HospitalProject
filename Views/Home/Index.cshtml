@@ -1,0 +1,63 @@
+﻿@model HomeIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="mb-5">
+    <h1 class="display-4 text-center">Liquid Reagent</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Alert Code</th>
+                <th scope="col">Location In Lab</th>
+                <th scope="col">Current Volume</th>
+                <th scope="col">Supplier</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (LiquidReagent agent in Model.LiquidReagents)
+            {
+            <tr>
+                <th scope="row">@agent.ID</th>
+                <td>@agent.Name</td>
+                <td>@agent.AlertCode</td>
+                <td>@agent.LocationInLab</td>
+                <td>@agent.currentVolume mL</td>
+                <td>@agent.Supplier.Name</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<div class="mt-5">
+    <h1 class="display-4 text-center">Solid Reagent</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Alert Code</th>
+                <th scope="col">Location In Lab</th>
+                <th scope="col">Current Volume</th>
+                <th scope="col">Supplier</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SolidReagent agent in Model.SolidReagents)
+            {
+                <tr>
+                    <th scope="row">@agent.ID</th>
+                    <td>@agent.Name</td>
+                    <td>@agent.AlertCode</td>
+                    <td>@agent.LocationInLab</td>
+                    <td>@agent.currentVolume gms</td>
+                    <td>@agent.Supplier.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
