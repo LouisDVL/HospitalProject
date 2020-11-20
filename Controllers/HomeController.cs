@@ -25,14 +25,9 @@ namespace HospitalProject.Controllers
 
         public IActionResult Index()
         {
-            var liquidReagent = _context.LiquidReagents.Include(l => l.Supplier).ToList();
-            var solidReagent = _context.SolidReagents.Include(l => l.Supplier).ToList();
-            var ViewModel = new HomeIndexViewModel
-            {
-                LiquidReagents = liquidReagent,
-                SolidReagents = solidReagent
-            };
-            return View(ViewModel);
+            var Reagent = _context.Reagents.Include(l => l.Supplier).ToList();
+            
+            return View(Reagent);
         }
 
         public IActionResult Privacy()

@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace HospitalProject.Models
 {
-    public class LiquidReagent
+    public class Reagent
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        [Required]
+        
         public string Name { get; set; }
 
-        [Required]
-        public int AlertCode { get; set; }
+        
+        public int Alert { get; set; }
 
-        [Required]
-        public string LocationInLab { get; set; }
+        
+        public string Location { get; set; }
+
+        
+        public State State { get; set; }
+
+        
+        public int stateId { get; set; }
 
         //This will be in grams or mililitres
-        [Required]
-        public int currentVolume { get; set; }
+        
+        public int Volume { get; set; }
 
-        [Required]
+        
         public int MaxVolume { get; set; }
 
-        [Required]
+        
         public int SupplierID { get; set; }
         public Supplier Supplier { get; set; }
-
     }
 }

@@ -14,81 +14,79 @@ namespace HospitalProject.Data
             : base(options)
         {
         }
-        public DbSet<LiquidReagent> LiquidReagents { get; set; }
-        public DbSet<SolidReagent> SolidReagents { get; set; }
+
         public DbSet<Supplier> Suppliers { get; set; }
+
+        public DbSet<Reagent> Reagents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<LiquidReagent>()
-                .HasOne(l => l.Supplier);
-
-            builder.Entity<SolidReagent>()
-                .HasOne(l => l.Supplier);
-
-            builder.Entity<LiquidReagent>().HasData(
-                new LiquidReagent
+            builder.Entity<Reagent>().HasData(
+                new Reagent
                 {
-                    ID = 1,
+                    Id = 1,
                     Name = "Acetic Acid",
-                    AlertCode = 4,
-                    LocationInLab = "Cut-Up/Corrosive Cab",
-                    currentVolume = 2500,
+                    Alert = 4,
+                    Location = "Cut-Up/Corrosive Cab",
+                    stateId = 1,
+                    Volume = 2500,
                     MaxVolume = 2500,
                     SupplierID = 1
                 },
-                new LiquidReagent
+                new Reagent
                 {
-                    ID = 2,
+                    Id = 2,
                     Name = "Ammonia",
-                    AlertCode = 3,
-                    LocationInLab = "Cut-Up/Corrosive Cab",
-                    currentVolume = 2500,
+                    Alert = 3,
+                    Location = "Cut-Up/Corrosive Cab",
+                    stateId = 1,
+                    Volume = 2500,
                     MaxVolume = 2500,
                     SupplierID = 2
-                }
-                );
-
-            builder.Entity<SolidReagent>().HasData(
-                new SolidReagent
+                },
+                new Reagent
                 {
-                    ID = 1,
+                    Id = 3,
                     Name = "Alcian Blue",
-                    AlertCode = 1,
-                    LocationInLab = "Specials cupboard",
-                    currentVolume = 25,
+                    Alert = 1,
+                    Location = "Specials cupboard",
+                    stateId = 2,
+                    Volume = 25,
                     MaxVolume = 25,
                     SupplierID = 1
                 },
-                new SolidReagent
+                new Reagent
                 {
-                    ID = 2,
+                    Id = 4,
                     Name = "Ammonium iron sulphate",
-                    AlertCode = 2,
-                    LocationInLab = "Specials Cupboard",
-                    currentVolume = 500,
+                    Alert = 2,
+                    Location = "Specials Cupboard",
+                    stateId = 2,
+                    Volume = 500,
                     MaxVolume = 500,
                     SupplierID = 2
                 },
-                new SolidReagent
+                new Reagent
                 {
-                    ID = 3,
+                    Id = 5,
                     Name = "Aniline Blue",
-                    AlertCode = 1,
-                    LocationInLab = "Specials Cupboard",
-                    currentVolume = 25,
+                    Alert = 1,
+                    Location = "Specials Cupboard",
+                    stateId = 2,
+                    Volume = 25,
                     MaxVolume = 25,
                     SupplierID = 3
                 },
-                new SolidReagent
+                new Reagent
                 {
-                    ID = 4,
+                    Id = 6,
                     Name = "Calcium Chloride",
-                    AlertCode = 3,
-                    LocationInLab = "Specials Cupboard",
-                    currentVolume = 1000,
+                    Alert = 3,
+                    Location = "Specials Cupboard",
+                    stateId = 2,
+                    Volume = 1000,
                     MaxVolume = 1000,
                     SupplierID = 4
                 }
@@ -122,6 +120,19 @@ namespace HospitalProject.Data
                     Name = "Ajax Chemicals",
                     Location = "Minter Ellison Rudd Watts, 88 Shortland Street, Auckland Central, Auckland",
                     Contact = "9429033701356"
+                }
+                );
+
+            builder.Entity<Reagent>().HasData(
+                new State
+                {
+                    Id = 1,
+                    Name = "Liquid"
+                },
+                new State
+                {
+                    Id = 2,
+                    Name = "Solid"
                 }
                 );
         }

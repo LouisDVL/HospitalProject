@@ -9,7 +9,6 @@ namespace HospitalProject.ViewModels
 {
     public class HomeIndexViewModel
     {
-        public IEnumerable<LiquidReagent> LiquidReagents { get; set; }
-        public IEnumerable<SolidReagent> SolidReagents { get; set; }
+        public IEnumerable<Reagent> Reagents { get; set; }
     }
 }

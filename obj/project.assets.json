@@ -5703,11 +5703,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\codingProjects\\HospitalProject\\HospitalProject.csproj",
+      "projectUniqueName": "D:\\Program Files\\codingProjects\\HospitalProject\\HospitalProject.csproj",
       "projectName": "HospitalProject",
-      "projectPath": "D:\\codingProjects\\HospitalProject\\HospitalProject.csproj",
+      "projectPath": "D:\\Program Files\\codingProjects\\HospitalProject\\HospitalProject.csproj",
       "packagesPath": "C:\\Users\\The Gibbon\\.nuget\\packages\\",
-      "outputPath": "D:\\codingProjects\\HospitalProject\\obj\\",
+      "outputPath": "D:\\Program Files\\codingProjects\\HospitalProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -5726,6 +5726,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5737,6 +5738,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
@@ -5777,7 +5779,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
