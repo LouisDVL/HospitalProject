@@ -187,3 +187,6 @@ D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Hospital
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\HospitalProject.pdb
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\HospitalProject.genruntimeconfig.cache
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Reagent\GetReagent.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Reagent\NewReagent.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\package-lock.json
+D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\package.json

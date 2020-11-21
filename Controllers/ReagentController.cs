@@ -16,7 +16,16 @@ namespace HospitalProject.Controllers
         {
             _context = context;
         }
-        [HttpGet("Reagent/[controller]/{id}")]
+
+        //Create
+        [HttpGet]
+        public IActionResult NewReagent()
+        {
+            return View();
+        }
+
+        //Read
+        [HttpGet]
         public IActionResult GetReagent(int id)
         {
             var Reagent = _context.Reagents.Where(r => r.Id == id)
@@ -25,5 +34,7 @@ namespace HospitalProject.Controllers
                 .FirstOrDefault();
             return View(Reagent);
         }
+
+        
     }
 }
