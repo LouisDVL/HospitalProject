@@ -1,0 +1,44 @@
+﻿@model Reagent
+@{
+    ViewData["Title"] = Model.Name;
+}
+<div>
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th scope="row">ID:</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th scope="row">Name:</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Alert Level:</th>
+                <td>@Model.Alert</td>
+            </tr>
+            <tr>
+                <th scope="row">Location:</th>
+                <td>@Model.Location</td>
+            </tr>
+            <tr>
+                <th scope="row">State:</th>
+                <td>@Model.State.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Current Volume:</th>
+                <td>@Model.Volume</td>
+            </tr>
+            <tr>
+                <th scope="row">Max Volume:</th>
+                <td>@Model.MaxVolume</td>
+            </tr>
+            <tr>
+                <th scope="row">Supplier:</th>
+                <td>@Model.Supplier.Name</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+</div>

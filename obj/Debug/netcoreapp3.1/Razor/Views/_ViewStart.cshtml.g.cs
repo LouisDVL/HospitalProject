@@ -26,15 +26,8 @@ using HospitalProject.Models;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "D:\Program Files\codingProjects\HospitalProject\Views\_ViewImports.cshtml"
-using HospitalProject.ViewModels;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fd91b629841d4c9fce4fa38684d2292523c574cd", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9b37028d55fd627cb6e9b2a519ba0604fb4b0e48", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

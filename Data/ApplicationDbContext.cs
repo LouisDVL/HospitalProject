@@ -123,7 +123,7 @@ namespace HospitalProject.Data
                 }
                 );
 
-            builder.Entity<Reagent>().HasData(
+            builder.Entity<State>().HasData(
                 new State
                 {
                     Id = 1,

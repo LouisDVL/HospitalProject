@@ -10,29 +10,28 @@ namespace HospitalProject.Models
     {
         public int Id { get; set; }
 
-        
+        [Required]
         public string Name { get; set; }
 
-        
+        [Required]
         public int Alert { get; set; }
 
-        
+        [Required]
         public string Location { get; set; }
 
-        
+        [Required]
         public State State { get; set; }
 
-        
+        [Required]
         public int stateId { get; set; }
 
-        //This will be in grams or mililitres
-        
+        [Required]
         public int Volume { get; set; }
 
-        
+        [Required]
         public int MaxVolume { get; set; }
 
-        
+        [Required]
         public int SupplierID { get; set; }
         public Supplier Supplier { get; set; }
     }

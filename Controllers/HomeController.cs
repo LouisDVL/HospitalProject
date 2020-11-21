@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using HospitalProject.Models;
 using HospitalProject.Data;
 using Microsoft.EntityFrameworkCore;
-using HospitalProject.ViewModels;
+
 
 namespace HospitalProject.Controllers
 {
@@ -25,7 +25,7 @@ namespace HospitalProject.Controllers
 
         public IActionResult Index()
         {
-            var Reagent = _context.Reagents.Include(l => l.Supplier).ToList();
+            var Reagent = _context.Reagents.Include(r => r.Supplier).Include(r => r.State).ToList();
             
             return View(Reagent);
         }

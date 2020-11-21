@@ -1,10 +1,10 @@
-﻿@model HomeIndexViewModel
+﻿@model IEnumerable<Reagent>
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="mb-5">
-    <h1 class="display-4 text-center">Liquid Reagent</h1>
+    <h1 class="display-4 text-center">Reagents</h1>
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -17,14 +17,22 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Reagent agent in Model.Reagents)
+            @foreach (Reagent agent in Model)
             {
             <tr>
                 <th scope="row">@agent.Id</th>
-                <td>@agent.Name</td>
+                <td><a asp-controller="Reagent" asp-action="GetReagent" asp-route-id="@agent.Id"> @agent.Name </a></td>
                 <td>@agent.Alert</td>
                 <td>@agent.Location</td>
-                <td>@agent.Volume mL</td>
+                @if (agent.stateId == 1)
+                {
+                    <td>@agent.Volume mL</td>
+                }
+                else
+                {
+                    <td>@agent.Volume gms</td>
+                }
+
                 <td>@agent.Supplier.Name</td>
             </tr>
             }

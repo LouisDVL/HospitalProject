@@ -186,3 +186,4 @@ D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Hospital
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\HospitalProject.dll
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\HospitalProject.pdb
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\HospitalProject.genruntimeconfig.cache
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Reagent\GetReagent.cshtml.g.cs
