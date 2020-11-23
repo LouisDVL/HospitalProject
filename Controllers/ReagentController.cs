@@ -1,5 +1,10 @@
 ﻿using HospitalProject.Data;
+using HospitalProject.Models;
+using HospitalProject.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +17,8 @@ namespace HospitalProject.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public ReagentController(ApplicationDbContext context)
+
+        public ReagentController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
         }
@@ -21,7 +27,14 @@ namespace HospitalProject.Controllers
         [HttpGet]
         public IActionResult NewReagent()
         {
-            return View();
+            var Suppliers = _context.Suppliers.Select(r => new { r.ID, r.Name }).ToList();
+            
+            NewReagentViewModel viewModel = new NewReagentViewModel
+            {
+                Reagent = new Reagent(),
+                Suppliers = new SelectList(Suppliers, "ID", "Name")
+            };
+            return View(viewModel);
         }
 
         //Read
@@ -35,6 +48,24 @@ namespace HospitalProject.Controllers
             return View(Reagent);
         }
 
-        
+        //Create post
+        [HttpPost]
+        public IActionResult NewReagent(Reagent reagent)
+        {
+            if(!ModelState.IsValid)
+            {
+                var Suppliers = _context.Suppliers.Select(r => new { r.ID, r.Name }).ToList();
+                NewReagentViewModel viewModel = new NewReagentViewModel
+                {
+                    Reagent = reagent,
+                    Suppliers = new SelectList(Suppliers, "ID", "Name")
+                };
+                return View(viewModel);
+            }
+            _context.Reagents.Add(reagent);
+            _context.SaveChanges();
+            var routeValue = new RouteValueDictionary(new { action = "Index", controller = "Home" });
+            return RedirectToRoute(routeValue);
+        }
     }
 }
