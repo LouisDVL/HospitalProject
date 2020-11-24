@@ -1,18 +1,18 @@
-﻿using System;
+﻿using HospitalProject.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HospitalProject.Models
+namespace HospitalProject.ViewModel
 {
-    public class Reagent
+    public class FormReagentViewModel
     {
-        public int Id { get; set; }
-
         [Required]
-        [MaxLength(50, ErrorMessage ="Name is to long.")]
+        [MaxLength(50, ErrorMessage = "Name is to long.")]
         public string Name { get; set; }
 
         [Required]
@@ -21,8 +21,6 @@ namespace HospitalProject.Models
 
         [Required]
         public string Location { get; set; }
-
-        public State State { get; set; }
 
         [Required]
         [Range(1, 2, ErrorMessage = "Please select between Solid or Liquid.")]
@@ -34,12 +32,17 @@ namespace HospitalProject.Models
         public float Volume { get; set; }
 
         [Required]
-        [RegularExpression(@"^\d*[1-9]\d*$", ErrorMessage ="Max Volume cannot be set to 0.")]
+        [RegularExpression(@"^\d*[1-9]\d*$", ErrorMessage = "Max Volume cannot be set to 0.")]
         public float MaxVolume { get; set; }
 
         [Required]
         [DisplayName("Supplier")]
         public int SupplierID { get; set; }
-        public Supplier Supplier { get; set; }
+
+        public IEnumerable<SelectListItem> SuppliersChoices { get; set; }
+
+        public string Action { get; set; }
+
+
     }
 }

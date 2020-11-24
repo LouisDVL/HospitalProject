@@ -37,6 +37,12 @@
                 <th scope="row">Supplier:</th>
                 <td>@Model.Supplier.Name</td>
             </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Reagent" asp-action="UpdateReagent" asp-route-id="@Model.Id">Edit</a>
+                </td>
+                
+            </tr>
         </tbody>
     </table>
     

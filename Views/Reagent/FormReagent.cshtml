@@ -1,0 +1,64 @@
+﻿@model FormReagentViewModel
+@{
+    ViewBag.Title = "New Reagent";
+}
+@section Scripts {
+    <script src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/js/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="col-md-8 offset-md-2 shadow">
+    <form asp-controller="Reagent" asp-action="@Model.Action" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Reagent Name: </label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Alert">Alert Level: </label>
+            <select asp-for="Alert" class="custom-select mr-sm-2">
+                <option selected>Choose...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <span asp-validation-for="Alert" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Location">Location </label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="stateId">Solid or Liquid </label>
+            <select asp-for="stateId" class="custom-select mr-sm-2">
+                <option selected>Choose...</option>
+                <option value="1">Liquid</option>
+                <option value="2">Solid</option>
+            </select>
+            <span asp-validation-for="stateId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Volume">Current Volume </label>
+            <input asp-for="Volume" class="form-control" />
+            <span asp-validation-for="Volume" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MaxVolume">Max Volume </label>
+            <input asp-for="MaxVolume" class="form-control" />
+            <span asp-validation-for="MaxVolume" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SupplierID">Supplier </label>
+            <select asp-for="SupplierID" asp-items="@Model.SuppliersChoices" class="custom-select mr-sm-2">
+                <option value="">Select Supplier</option>
+            </select>
+            <span asp-validation-for="SupplierID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

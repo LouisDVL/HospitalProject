@@ -41,6 +41,11 @@
                         }
 
                         <td>@agent.Supplier.Name</td>
+                        @*<td>
+                            <form asp-controller="Reagent" asp-action="DeleteReagent" asp-route-id="@agent.Id">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>*@
                     </tr>
                 }
             </tbody>
