@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace HospitalProject.Models
+namespace HospitalProject.ViewModel
 {
-    public class Supplier
+    public class SupplierFormViewModel
     {
-        public int ID { get; set; }
-
         [Required]
-        [MaxLength(50, ErrorMessage ="Name is to long")]
+        [MaxLength(50, ErrorMessage = "Name is to long")]
         public string Name { get; set; }
         [MaxLength(100)]
         public string Location { get; set; }
 
         [Phone]
         public string Contact { get; set; }
+
+        public string Action { get; set; }
     }
 }

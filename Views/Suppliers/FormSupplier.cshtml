@@ -1,0 +1,38 @@
+﻿@model SupplierFormViewModel
+@{
+    if (@Model.Action == "NewSupplier")
+    {
+        ViewData["Title"] = "New Supplier";
+    }
+    else
+    {
+        ViewData["Title"] = $"Edit {Model.Name}";
+    }
+}
+@section Scripts {
+    <script src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/js/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="col-md-8 offset-md-2 shadow">
+    <form asp-controller="Suppliers" asp-action="@Model.Action" method="post">
+        <div class="form-group">
+            <label asp-for="Name">Supplier Name: </label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Location">Location </label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Contact">Contact </label>
+            <input asp-for="Contact" class="form-control" />
+            <span asp-validation-for="Contact" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>

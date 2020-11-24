@@ -192,3 +192,6 @@ D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\package.
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Reagent\FormReagent.cshtml.g.cs
 D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\Index.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\GetSupplier.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\FormSupplier.cshtml.g.cs

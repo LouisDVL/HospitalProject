@@ -1,0 +1,37 @@
+﻿@model SupplierIndexViewModel
+@{
+    ViewData["Title"] = "Suppliers";
+}
+
+
+<div class="mb-5 shadow">
+    <div class="row">
+        <div class="col-sm-11">
+            <h1 class="display-4 text-center">Suppliers</h1>
+        </div>
+        <div class="col-sm-1 mt-auto mb-auto">
+            <a class="btn btn-primary" asp-area="" asp-controller="Suppliers" asp-action="NewSupplier">Add</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Location</th>
+                <th scope="col">Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Supplier supplier in Model.Suppliers)
+            {
+                <tr>
+                    <th scope="row">@supplier.ID</th>
+                    <td><a asp-controller="Suppliers" asp-action="GetSupplier" asp-route-id="@supplier.ID"> @supplier.Name </a></td>
+                    <td>@supplier.Location</td>
+                    <td>@supplier.Contact</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

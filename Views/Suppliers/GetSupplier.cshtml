@@ -1,0 +1,36 @@
+﻿@model Supplier 
+@{
+    ViewData["Title"] = @Model.Name;
+}
+
+<div class="shadow col-md-8 offset-md-2">
+    <table class="table table-borderless">
+        <tbody>
+            <tr>
+                <th scope="row">ID:</th>
+                <td>@Model.ID</td>
+            </tr>
+            <tr>
+                <th scope="row">Name:</th>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <th scope="row">Location:</th>
+                <td>@Model.Location</td>
+            </tr>
+            <tr>
+                <th scope="row">Contact:</th>
+                <td>@Model.Contact</td>
+            </tr>
+            <tr>
+                <td>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Suppliers" asp-action="UpdateSupplier" asp-route-id="@Model.ID">Edit</a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
