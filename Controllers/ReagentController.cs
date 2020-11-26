@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using HospitalProject.Data;
 using HospitalProject.Models;
+using HospitalProject.Services;
 using HospitalProject.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +19,13 @@ namespace HospitalProject.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IReagentsRepository _reagentsRepository;
 
-        public ReagentController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IMapper mapper)
+        public ReagentController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IMapper mapper, IReagentsRepository reagentsRepository)
         {
             _context = context;
             _mapper = mapper;
+            _reagentsRepository = reagentsRepository;
         }
 
         //Create
@@ -42,35 +45,13 @@ namespace HospitalProject.Controllers
             return View("FormReagent", viewModel);
         }
 
-        //Read
-        [HttpGet]
-        public IActionResult GetReagent(int id)
-        {
-            var Reagent = _context.Reagents.Where(r => r.Id == id)
-                .Include(r => r.Supplier)
-                .Include(r => r.State)
-                .FirstOrDefault();
-            if(Reagent == null)
-            {
-                return NotFound();
-            }
-            return View(Reagent);
-        }
-
-        //Create Reagent
+        //Create Reagent Post
         [HttpPost]
         public IActionResult NewReagent(FormReagentViewModel reagent)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var Suppliers = _context.Suppliers.Select(r => new { r.ID, r.Name }).ToList();
-                FormReagentViewModel viewModel = new FormReagentViewModel
-                {
-                    SuppliersChoices = new SelectList(Suppliers, "ID", "Name"),
-                    Action = "NewReagent"
-                };
-                _mapper.Map<Reagent>(viewModel);
-                return View("FormReagent", viewModel);
+                return View("FormReagent", reagent);
             }
             Reagent newReagent = new Reagent();
             _mapper.Map(reagent, newReagent);
@@ -78,6 +59,18 @@ namespace HospitalProject.Controllers
             _context.SaveChanges();
             var routeValue = new RouteValueDictionary(new { action = "Index", controller = "Home" });
             return RedirectToRoute(routeValue);
+        }
+
+        //Read
+        [HttpGet]
+        public IActionResult GetReagent(int id)
+        {
+            var Reagent = _reagentsRepository.GetReagent(id);
+            if (Reagent == null)
+            {
+                return NotFound();
+            }
+            return View(Reagent);
         }
 
         //Update Reagent get
@@ -108,14 +101,7 @@ namespace HospitalProject.Controllers
         {
             if(!ModelState.IsValid)
             {
-                var Suppliers = _context.Suppliers.Select(r => new { r.ID, r.Name }).ToList();
-                FormReagentViewModel viewModel = new FormReagentViewModel
-                {
-                    SuppliersChoices = new SelectList(Suppliers, "ID", "Name"),
-                    Action = "UpdateReagent"
-                };
-                _mapper.Map(reagent, viewModel);
-                return View(viewModel);
+                return View("FormReagent", reagent);
             }
 
             var ToEdit = _context.Reagents.FirstOrDefault(r => r.Id == id);

@@ -16,6 +16,7 @@
 
 <div class="col-md-8 offset-md-2 shadow">
     <form asp-controller="Suppliers" asp-action="@Model.Action" method="post">
+        @Html.AntiForgeryToken()
         <div class="form-group">
             <label asp-for="Name">Supplier Name: </label>
             <input asp-for="Name" class="form-control" />

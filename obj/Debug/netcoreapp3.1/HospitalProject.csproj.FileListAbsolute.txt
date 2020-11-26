@@ -195,3 +195,5 @@ D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\AutoMapp
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\Index.cshtml.g.cs
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\GetSupplier.cshtml.g.cs
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\FormSupplier.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Order\Index.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Order\NewOrder.cshtml.g.cs

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using HospitalProject.Models;
 using HospitalProject.Data;
 using Microsoft.EntityFrameworkCore;
-
+using HospitalProject.Services;
 
 namespace HospitalProject.Controllers
 {
@@ -16,18 +16,21 @@ namespace HospitalProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IReagentsRepository _reagentsRepository;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, IReagentsRepository reagentsRepository)
         {
             _logger = logger;
             _context = context;
+            _reagentsRepository = reagentsRepository;
+
         }
 
         public IActionResult Index()
         {
-            var Reagent = _context.Reagents.Include(r => r.Supplier).Include(r => r.State).ToList();
+            IEnumerable<Reagent> reagents = _reagentsRepository.GetReagents();
             
-            return View(Reagent);
+            return View(reagents);
         }
 
         public IActionResult Privacy()

@@ -19,6 +19,10 @@ namespace HospitalProject.Data
 
         public DbSet<Reagent> Reagents { get; set; }
 
+        public DbSet<Orders> Orders { get; set; }
+
+        public DbSet<OrderReagent> orderReagents { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

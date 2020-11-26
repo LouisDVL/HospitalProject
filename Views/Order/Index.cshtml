@@ -1,0 +1,30 @@
+﻿@model List<Orders>
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="mb-5 shadow">
+    <div class="row">
+        <div class="col-sm-10">
+            <h1 class="display-4 text-center">Orders</h1>
+        </div>
+        <div class="col-sm-2 mt-auto mb-auto">
+            <a class="btn btn-primary" asp-area="" asp-controller="Order" asp-action="NewOrder">Create</a>
+        </div>
+    </div>
+    <table class="table">
+        <tbody>
+            @foreach (Orders order in Model)
+            {
+                <tr>
+                    <th scope="row">#</th>
+                    <td>
+                    <a asp-controller="" asp-action="" asp-route-id=""> 
+                        @order.Id
+                    </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

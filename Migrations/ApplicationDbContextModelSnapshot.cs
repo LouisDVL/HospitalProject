@@ -4,16 +4,14 @@ using HospitalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace HospitalProject.Data.Migrations
+namespace HospitalProject.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201027064406_InitialMigration")]
-    partial class InitialMigration
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,68 +19,177 @@ namespace HospitalProject.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HospitalProject.Models.LiquidReagent", b =>
+            modelBuilder.Entity("HospitalProject.Models.OrderReagent", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AlertCode")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<float>("AmountNeeded")
+                        .HasColumnType("real");
 
-                    b.Property<string>("LocationInLab")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("MaxVolume")
+                    b.Property<int?>("OrdersId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SupplierID")
+                    b.Property<int?>("reagentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("currentVolume")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasKey("ID");
+                    b.HasIndex("OrdersId");
 
-                    b.HasIndex("SupplierID");
+                    b.HasIndex("reagentId");
 
-                    b.ToTable("LiquidReagents");
+                    b.ToTable("orderReagents");
                 });
 
-            modelBuilder.Entity("HospitalProject.Models.SolidReagent", b =>
+            modelBuilder.Entity("HospitalProject.Models.Orders", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AlertCode")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("Id");
 
-                    b.Property<string>("LocationInLab")
-                        .HasColumnType("nvarchar(max)");
+                    b.ToTable("Orders");
+                });
 
-                    b.Property<int>("MaxVolume")
+            modelBuilder.Entity("HospitalProject.Models.Reagent", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Alert")
                         .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("MaxVolume")
+                        .HasColumnType("real");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
-                    b.Property<int?>("SupplierID")
+                    b.Property<int>("SupplierID")
                         .HasColumnType("int");
 
-                    b.Property<int>("currentVolume")
+                    b.Property<float>("Volume")
+                        .HasColumnType("real");
+
+                    b.Property<int>("stateId")
                         .HasColumnType("int");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("SupplierID");
 
-                    b.ToTable("SolidReagents");
+                    b.HasIndex("stateId");
+
+                    b.ToTable("Reagents");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Alert = 4,
+                            Location = "Cut-Up/Corrosive Cab",
+                            MaxVolume = 2500f,
+                            Name = "Acetic Acid",
+                            SupplierID = 1,
+                            Volume = 2500f,
+                            stateId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Alert = 3,
+                            Location = "Cut-Up/Corrosive Cab",
+                            MaxVolume = 2500f,
+                            Name = "Ammonia",
+                            SupplierID = 2,
+                            Volume = 2500f,
+                            stateId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Alert = 1,
+                            Location = "Specials cupboard",
+                            MaxVolume = 25f,
+                            Name = "Alcian Blue",
+                            SupplierID = 1,
+                            Volume = 25f,
+                            stateId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Alert = 2,
+                            Location = "Specials Cupboard",
+                            MaxVolume = 500f,
+                            Name = "Ammonium iron sulphate",
+                            SupplierID = 2,
+                            Volume = 500f,
+                            stateId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Alert = 1,
+                            Location = "Specials Cupboard",
+                            MaxVolume = 25f,
+                            Name = "Aniline Blue",
+                            SupplierID = 3,
+                            Volume = 25f,
+                            stateId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Alert = 3,
+                            Location = "Specials Cupboard",
+                            MaxVolume = 1000f,
+                            Name = "Calcium Chloride",
+                            SupplierID = 4,
+                            Volume = 1000f,
+                            stateId = 2
+                        });
+                });
+
+            modelBuilder.Entity("HospitalProject.Models.State", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("State");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Liquid"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Solid"
+                        });
                 });
 
             modelBuilder.Entity("HospitalProject.Models.Supplier", b =>
@@ -92,12 +199,51 @@ namespace HospitalProject.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Location")
+                    b.Property<string>("Contact")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.HasKey("ID");
 
                     b.ToTable("Suppliers");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Contact = "09-271 6415",
+                            Location = "21C Andromeda Crescent, East Tamaki, Auckland 2013",
+                            Name = "Milton Adams"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Contact = "0800 342 466",
+                            Location = "33 Westpoint Drive, Hobsonville, Auckland 0618",
+                            Name = "Scharlau"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Contact = "0800 652 634",
+                            Location = "Sylvia Park",
+                            Name = "Roche"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Contact = "9429033701356",
+                            Location = "Minter Ellison Rudd Watts, 88 Shortland Street, Auckland Central, Auckland",
+                            Name = "Ajax Chemicals"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -300,18 +446,30 @@ namespace HospitalProject.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("HospitalProject.Models.LiquidReagent", b =>
+            modelBuilder.Entity("HospitalProject.Models.OrderReagent", b =>
                 {
-                    b.HasOne("HospitalProject.Models.Supplier", "Supplier")
-                        .WithMany("liquidReagents")
-                        .HasForeignKey("SupplierID");
+                    b.HasOne("HospitalProject.Models.Orders", null)
+                        .WithMany("ReagentsNeeded")
+                        .HasForeignKey("OrdersId");
+
+                    b.HasOne("HospitalProject.Models.Reagent", "reagent")
+                        .WithMany()
+                        .HasForeignKey("reagentId");
                 });
 
-            modelBuilder.Entity("HospitalProject.Models.SolidReagent", b =>
+            modelBuilder.Entity("HospitalProject.Models.Reagent", b =>
                 {
                     b.HasOne("HospitalProject.Models.Supplier", "Supplier")
-                        .WithMany("solidReagents")
-                        .HasForeignKey("SupplierID");
+                        .WithMany()
+                        .HasForeignKey("SupplierID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HospitalProject.Models.State", "State")
+                        .WithMany()
+                        .HasForeignKey("stateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

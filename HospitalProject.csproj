@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Api\" />
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>
