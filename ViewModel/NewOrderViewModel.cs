@@ -1,4 +1,7 @@
-﻿using HospitalProject.Models;
+﻿using DynamicVML;
+using DynamicVML.Extensions;
+using HospitalProject.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +11,8 @@ namespace HospitalProject.ViewModel
 {
     public class NewOrderViewModel
     {
-        public List<OrderReagent> ReagentsNeeded { get; set; }
+        public virtual DynamicList<OrderReagent> OrderReagents { get; set; } = new DynamicList<OrderReagent>();
+
+        public string Action { get; set; }
     }
 }

@@ -1,4 +1,30 @@
-﻿@model NewOrderViewModel
+﻿@using DynamicVML.Extensions
+@model NewOrderViewModel
 @{
     ViewData["Title"] = "New Order";
+}
+
+
+<div class="col-md-8 offset-md-2 shadow">
+    <form asp-controller="Suppliers" asp-action="@Model.Action" method="post" id="form">
+        @Html.AntiForgeryToken()
+        <div>
+            <h3>
+                Reagents
+            </h3>
+            @Html.ListEditorFor(x => x.OrderReagents, Url.Action("AddReagent"), "Order Reagent")
+        </div>
+
+        <div class="form-group">
+            @*<input class="btn btn-default" type="button" id="btnAdd" value="Add Reagent" onclick="Dynamic()" />*@
+            <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="/js/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/js/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Load JS code for the Dynamic ViewModel Lists above -->
+    <script src="~/lib/dynamic-viewmodel-lists/dvml.js"></script>
 }

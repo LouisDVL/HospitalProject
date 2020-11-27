@@ -8,6 +8,7 @@ namespace HospitalProject.Models
 {
     public class Orders
     {
+        [Key]
         public int Id { get; set; }
 
         public List<OrderReagent> ReagentsNeeded { get; set; }

@@ -8,6 +8,7 @@ namespace HospitalProject.Models
 {
     public class State
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

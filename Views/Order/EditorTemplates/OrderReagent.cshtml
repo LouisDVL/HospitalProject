@@ -1,0 +1,15 @@
+﻿@model OrderReagent
+
+<input type="hidden" asp-for="Id" />
+<div class="form-group">
+<label asp-for="@Model.reagentId">Order Reagent </label>
+<select asp-for="@Model.reagentId" asp-items="@Model.ReagentChoices" class="custom-select mr-sm-2">
+    <option value="">Select Reagent</option>
+</select>
+<span asp-validation-for="@Model.reagentId" class="text-danger"></span>
+            </div>
+<div class="form-group">
+    <label asp-for="@Model.AmountNeeded">Amount Needed </label>
+    <input asp-for="@Model.AmountNeeded" class="form-control" />
+    <span asp-validation-for="@Model.AmountNeeded" class="text-danger"></span>
+</div>

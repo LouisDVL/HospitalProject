@@ -196,4 +196,8 @@ D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Vi
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\GetSupplier.cshtml.g.cs
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Suppliers\FormSupplier.cshtml.g.cs
 D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Order\Index.cshtml.g.cs
-D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Order\NewOrder.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Order\FormOrder.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\EditorTemplates\OrderReagent.cshtml.g.cs
+D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\DynamicVML.Views.dll
+D:\Program Files\codingProjects\HospitalProject\bin\Debug\netcoreapp3.1\DynamicVML.dll
+D:\Program Files\codingProjects\HospitalProject\obj\Debug\netcoreapp3.1\Razor\Views\Order\EditorTemplates\OrderReagent.cshtml.g.cs

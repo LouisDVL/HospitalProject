@@ -1,7 +1,10 @@
-﻿using HospitalProject.Data;
+﻿using DynamicVML;
+using DynamicVML.Extensions;
+using HospitalProject.Data;
 using HospitalProject.Models;
 using HospitalProject.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,10 +26,7 @@ namespace HospitalProject.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var Orders = _context.Orders
-                .Include(order => order.ReagentsNeeded)
-                    .ThenInclude(reagentsNeeded => reagentsNeeded.reagent)
-                .ToList();
+            var Orders = _context.Orders.ToList();
             return View(Orders);
         }
 
@@ -34,12 +34,22 @@ namespace HospitalProject.Controllers
         [HttpGet]
         public IActionResult NewOrder()
         {
-            var reagentsNeeded = new List<OrderReagent>();
             NewOrderViewModel viewModel = new NewOrderViewModel
             {
-                ReagentsNeeded = reagentsNeeded
+                Action = "NewOrder"
             };
-            return View(viewModel);
+            return View("FormOrder", viewModel);
+        }
+
+        public IActionResult AddReagent(AddNewDynamicItem parameters)
+        {
+            var reagentChoices = _context.Reagents.Select(r => new { r.Id, r.Name }).ToList();
+            var newOrderReagent = new OrderReagent()
+            {
+                ReagentChoices = new SelectList(reagentChoices, "Id", "Name")
+            };
+
+            return this.PartialView(newOrderReagent, parameters);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace HospitalProject.Models
 {
     public class Supplier
     {
+        [Key]
         public int ID { get; set; }
 
         [Required]

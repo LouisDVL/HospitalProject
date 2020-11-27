@@ -9,6 +9,7 @@ namespace HospitalProject.Models
 {
     public class Reagent
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
